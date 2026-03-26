@@ -144,7 +144,11 @@
 
         async function loadProducts() {
             try {
-                const res = await fetch(API_URL);
+                const res = await fetch(API_URL, {
+    headers: {
+        'ngrok-skip-browser-warning': 'true'
+    }
+});
                 products = await res.json();
 
                 document.getElementById('loading').style.display = 'none';
